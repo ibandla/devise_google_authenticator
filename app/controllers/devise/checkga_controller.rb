@@ -7,7 +7,7 @@ class Devise::CheckgaController < Devise::SessionsController
   def show
     @tmpid = params[:id]
     if @tmpid.nil?
-      redirect_to :root
+      redirect_to "/admin"
     else
       render :show
     end
@@ -32,18 +32,15 @@ class Devise::CheckgaController < Devise::SessionsController
         end
       else
         set_flash_message(:error, :error)
-        redirect_to redirect_on_error_url
+        redirect_to "/admin"
       end
 
     else
       set_flash_message(:error, :error)
-      redirect_to redirect_on_error_url
+      redirect_to "/admin"
     end
   end
 
-  def redirect_on_error_url
-    :root
-  end
 
   private
 
